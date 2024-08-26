@@ -1,0 +1,61 @@
+{
+	"postgres": {
+		"host": "MTAuMTAuMzcuODE=",
+		"port": "MTU0MzI=",
+		"database": "cG9zdGdyZXM=",
+		"id": "ZXhlbWFp",
+		"password": "emcoK05FcCluXThZWGsy"
+	},
+	"logpresso":{
+        "host" : "MTAuMTAuMzQuMTE=",
+        "port" : "MTg4ODg=",
+        "id" : "YWlfc3BhcnNl",
+        "password" : "YWlhaWFpYWkxQCM="
+    },
+	"clickhouse": {
+        "nginx": {
+			"host": "MTAuMTAuMzcuODM=",
+			"port": "MTc3NzY="
+		},
+        "id": "YWk=",
+        "password": "UVpQcG1kOGVDOEppWXQ=",
+        "database": "eGFpb3Bz"
+    },
+	"api_server": {
+		"host": "10.10.37.82",
+		"port": "14569"
+	},
+	"mlc_docker": {
+        "host": "172.72.0.3",
+        "port": "12589"
+    },
+	"module_api_server": {
+		"host": "0.0.0.0",
+		"port": "12589"
+	},
+	"redis_server": {
+		"master": {
+			"host": "10.10.37.83",
+			"port": "17778"
+		},
+		"slave": {
+			"host": "10.10.37.82",
+			"port": "17778"
+		}
+    },
+	"sys_id": "2",
+	"serving_flask": {
+		"host": "0.0.0.0"
+	},
+	"use_integration_log" : false,
+	"uvicorn_worker": {
+		"exem_aiops_anls_inst_multi": 2,
+		"exem_aiops_anls_service": 1,
+		"exem_aiops_fcst": 1,
+		"exem_aiops_anls_log_multi": 1
+	},
+	"kafka": {
+		"host": "10.10.37.81",
+		"port": "19092"
+	}
+}

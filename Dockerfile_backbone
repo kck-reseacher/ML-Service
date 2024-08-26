@@ -1,0 +1,47 @@
+
+FROM python:3.8.16
+
+ENV AIMODULE_HOME=/root/ai-home \
+    AIMODULE_PATH=/root/ai-module/mlops-mls \
+    MLOPS_SERVING_PATH=/root/ai-module/mlops-mls \
+    AIMODULE_LOG_PATH=/root/ai-log \
+    AIMODULE_SERVER_ENV=dev \
+    AIMODULE_LOGGER_ENV=dev \
+    MLOPS_SERVER_ENV=master \
+    USE_SLAVE_SERVER=false \
+    GPU_MIG=false
+
+ENV TZ=Asia/Seoul
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+WORKDIR /root
+
+RUN apt-get update && apt-get install -y wget
+
+RUN apt-get install -y curl vim g++ ntp
+
+RUN mkdir ai-home ai-module ai-log
+
+COPY ./ /root/ai-module/mlops-mls
+
+WORKDIR /root/ai-module/mlops-mls/package
+RUN pip install -r ./requirements.txt && \
+    pip install -r ./requirements2.txt && \
+    pip install psycopg2 && \
+    pip install rejson==0.5.6 && \
+    pip install torch==2.1.2 --index-url https://download.pytorch.org/whl/cu118 && \
+    pip install torch-geometric -f https://pytorch-geometric.com/whl/torch-2.1.2+cu118.html && \
+    pip install torch-scatter -f https://data.pyg.org/whl/torch-2.1.2+cu118.html && \
+    pip install torch-sparse -f https://data.pyg.org/whl/torch-2.1.2+cu118.html
+
+RUN echo 'alias logs="cd \AIMODULE_LOG_PATH"' >> ~/.bashrc \
+    && echo 'alias model="cd \$AIMODULE_HOME/model"' >> ~/.bashrc \
+    && echo 'alias module="cd \$AIMODULE_PATH"' >> ~/.bashrc \
+    && echo 'alias s="ps -ef | grep serving | grep -v grep"' >> ~/.bashrc \
+    && echo 'alias t="ps -ef | grep train.py | grep -v grep"' >> ~/.bashrc \
+    && echo 'alias ml="ps -ef | grep ml_controller | grep -v grep"' >> ~/.bashrc
+
+WORKDIR /root/ai-module/mlops-mls
+RUN chmod -R 777 ./*
+

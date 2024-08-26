@@ -1,0 +1,25 @@
+{
+  "module": "exem_aiops_anls_inst",
+  "sys_id": "",
+  "inst_type": "",
+  "target_id": "super",
+  "business_list": [],
+  "train_dir": "",
+  "home": "",
+  "model_dir": "",
+  "log_dir": "",
+  "db_conn_str": "",
+  "api_server": {
+    "host": "",
+    "port": ""
+  },
+  "module_api_server": {
+    "host": "",
+    "port": ""
+  },
+  "parameter": {
+    "train": {"gdn": {"use": true, "features": [], "metric_hyper_params": {}}
+  },
+    "service": null,
+    "data_set": {"test": 30, "validation": 0}}
+}

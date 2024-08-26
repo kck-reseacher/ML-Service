@@ -1,0 +1,23 @@
+# libraries for fastapi
+fastapi==0.69.0
+uvicorn==0.16.0
+httptools==0.4.0
+
+# libraries for gunicorn
+gunicorn==20.1.0
+setproctitle==1.2.3
+
+# libraries for onnx
+onnx==1.13.1
+onnxruntime==1.14.1
+tf2onnx==1.14.0
+
+# libraries for redisai
+redisai==1.3.0
+ml2rt==0.2.0
+
+# libraries for kafka
+confluent-kafka==2.3.0
+
+# libraries for asynchronous
+nest-asyncio==1.6.0

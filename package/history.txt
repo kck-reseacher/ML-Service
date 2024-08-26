@@ -1,0 +1,100 @@
+* 패키지 업데이트 히스토리 *
+
+2020-05-08 mkl 관련 패키지 삭제
+
+2020-06-10 (gpu)tensorflow-gpu v1.14.0 -> v2.1.0
+2020-06-10 (gpu)grpcio v1.22.0 -> v 1.24.3 suitable tensorflow-gpu 2.1.0
+2020-06-10 (gpu)scipy v1.2.1 -> v1.4.1 suitable tensorflow-gpu 2.1.0
+2020-06-10 (gpu)tensorboard v1.14.0 -> v2.1.1
+2020-06-10 (gpu)tensorflow-estimator v1.14.0 -> v2.1.0
+2020-06-10 (gpu)tensorflow-addones v0.8.3
+        - tensorflow 2.1.0 호환 tensorflow-addones v0.8.3
+        - tensorflow 2.2.0 호환 tensorflow-addones v0.10.0
+2020-06-11 (cpu)tensorflow v1.14.0 -> v2.1.0
+2020-06-11 (cpu)grpcio v1.22.0 -> v 1.24.3
+2020-06-11 (cpu)scipy v1.2.1 -> v1.4.1
+2020-06-11 (cpu)tensorboard v1.14.0 -> v2.1.1
+2020-06-11 (cpu)tensorflow-estimator v1.14.0 -> v2.1.0
+2020-06-11 (cpu)tensorflow-addones v0.8.3
+2020-06-11 (cpu)Keras-Applications v1.0.7 -> v1.0.8 suitable tensorflow 2.1.0
+2020-06-11 (cpu)Keras-Preprocessing v1.0.9 -> v1.1.0 suitable tensorflow 2.1.0
+2020-06-11 (cpu)protobuf v3.7.0 -> v3.8.0 suitable tensorflow 2.1.0
+2020-07-08 (cpu)lightgbm v2.3.0
+2020-07-08 (cpu)shap v0.35.0
+2020-07-08 (gpu)lightgbm v2.3.0
+2020-07-08 (gpu)shap v0.35.0
+2020-07-23 (gpu)add gpustat
+2020-08-20 (gpu)torch v1.5.0+cu101 -> v1.5.0
+        - (gpu)torchvision v0.6.0+cu101 -> v0.6.0
+        - (cpu)torch v1.5.0+cpu -> v1.5.0
+        - (cpu)torchvision v0.6.0+cpu -> v0.6.0
+2020-08-27 (cpu)pathos==0.2.6
+        - (dependency) ppft
+        - (dependency) dill
+        - (dependency) pox
+        - (dependency) multiprocess
+        - (dependency) six
+2020-08-27 (gpu)pathos==0.2.6
+        - (dependency) ppft
+        - (dependency) dill
+        - (dependency) pox
+        - (dependency) multiprocess
+        - (dependency) six
+2020-09-16
+        - (gpu) torch v1.5.0 -> v1.5.0+cu101 // for cuda 10.1 https://pytorch.org/get-started/previous-versions/
+        - (gpu) torchvision v0.6.0 -> v0.6.0+cu101 // for cuda 10.1 https://pytorch.org/get-started/previous-versions/
+2020-12-15
+        - (cpu) pyculiarity 삭제
+        - (gpu) pyculiarity 삭제
+2021-01-13
+        - (cpu) pyod 설치
+        - (cpu) joblib v0.13.2 -> v0.14.1
+2021-01-13
+        - (cpu) pyod 임시 삭제 - pyod 설치시 pandas 자동 업그레이드로 사이드 이펙트 발생.
+2021-01-19
+        - (cpu) pyod 설치 및 그에 따라 pandas 버전 1.1.5로 자동 업그레이드
+            - (dependency) combo
+            - (dependency) llvmlite
+            - (dependency) numba
+            - (dependency) pandas
+            - (dependency) suod
+        - (gpu) pyod 설치 및 그에 따라 pandas 버전 1.1.5로 자동 업그레이드
+            - (dependency) combo
+            - (dependency) llvmlite
+            - (dependency) numba
+            - (dependency) pandas
+            - (dependency) suod
+2021-01-19
+        - (cpu) Similarity Failure Detector 를 위한 json 유사도 산출 라이브러리 (jsondiff, deepdiff) 추가
+2021-03-30
+        - (cpu) lightgbm 이벤트예측 최적화를 위한 Bayesian Optimizer 라이브러리 추가: bayesian-optimization v1.2.0
+2021-10-25
+        - (cpu) torch 프레임워크 미사용으로 인한 torch torchvision 삭제
+        - (gpu) install-gpu.sh 실행시 ai-module-gpu에 torch 관련 라이브러리가 설치되지 않도록 .sh 파일 내 requirement-etc.txt 설치 명령어 제거
+2021-11-03
+        - (cpu) tslearn 설치 및 그에 따라 scikit-learn 0.24.2로 자동 업그레이드
+            - (dependency) numpy
+            - (dependency) Scipy
+            - (dependency) joblib
+            - (dependency) threadpoolctl
+            - (dependency) Cython
+        - (gpu) tslearn 설치 및 그에 따라 scikit-learn 0.24.2로 자동 업그레이드
+            - (dependency) numpy
+            - (dependency) Scipy
+            - (dependency) joblib
+            - (dependency) threadpoolctl
+            - (dependency) Cython
+2023-06-10
+        - (cpu,gpu) ONNX 적용으로 인한 requiremnets 파일 최신화
+            - ai-module, ai-module-gpu 가상환경 통합
+            - 파이썬 버전 업그레이드
+                - 3.6.8 -> 3.8.16
+2023-06-20
+        - (torch) 추후 ONNX 적용을 위해 requirements 파일 최신화
+            - python 버전 업그레이드
+                - 3.6.8 -> 3.8.16
+
+2024-02-27
+        - serving/training간 서비스 분리(MSA 형태)에 따른 소스 분리
+            - 이후부터는 serving 관련 history 만 기록
+            - serving 과 관련 없는 lib 제거
